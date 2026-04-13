@@ -1,0 +1,52 @@
+* {
+    margin: 0px;
+    padding: 0px;
+
+    box-sizing: border-box;
+}
+
+html {
+    scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#door {
+    image-rendering: pixelated;
+    user-select: none;
+
+    transform: scale(3);
+}
+
+#door::after {
+    cursor: pointer;
+
+    content: "";
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    background-image: url(/doormainA.png);
+    background-repeat: no-repeat;
+}
+
+#door:hover::after {
+    background-image: url(/doormain2.png);
+}
