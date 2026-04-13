@@ -26,6 +26,7 @@ main {
 }
 
 #door {
+    image-rendering: crisp-edges;
     image-rendering: pixelated;
     user-select: none;
 
@@ -49,4 +50,39 @@ main {
 
 #door:hover::after {
     background-image: url(/doormain2.png);
+}
+
+#rpg-container {
+    border-image-source: url(/border1.png);
+    border-image-repeat: round;
+    border-image-slice: 32;
+
+    border-style: solid;
+    border-width: 32px;
+
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
+
+#frame-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+}
+
+#canvas {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    box-shadow: none;
+    outline: none;
+    border: 0;
+
+    width: 640px;
+    height: 480px;
+
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
 }

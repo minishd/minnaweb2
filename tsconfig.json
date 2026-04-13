@@ -6,8 +6,6 @@
     "target": "ESNext",
 
     // Modules
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
     "isolatedModules": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
@@ -15,6 +13,6 @@
 
     // Type Checking & Safety
     "strict": true,
-    "types": ["vite/client"]
-  }
+    "types": ["vite/client"],
+  },
 }

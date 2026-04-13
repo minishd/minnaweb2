@@ -1,0 +1,4 @@
+# engine artifacts
+ynoengine*.js
+ynoengine*.d.ts
+ynoengine*.wasm

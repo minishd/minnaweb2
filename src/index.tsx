@@ -8,6 +8,7 @@ import App from "./app";
 import { Route, Router } from "@solidjs/router";
 import LandingPage from "./pages/landing";
 import NotFound from "./errors/404";
+import { lazy } from "solid-js";
 
 const root = document.getElementById("root");
 
@@ -21,6 +22,10 @@ render(
   () => (
     <Router root={App}>
       <Route path="/" component={LandingPage} />
+      <Route
+        path="/unconscious"
+        component={lazy(() => import("./pages/rpg"))}
+      />
       <Route path="**" component={NotFound} />
     </Router>
   ),
