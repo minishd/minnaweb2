@@ -29,15 +29,21 @@ export default function RpgPage() {
   let canvas!: HTMLCanvasElement;
 
   onMount(async () => {
-    let player: any = await createEasyRpgPlayer({
+    let player = await createEasyRpgPlayer({
       game: undefined,
       saveFs: undefined,
     });
-    player.initApi();
+    (player as any).initApi();
+
+    // Allow room connection
+    player.api.sessionReady();
+
     canvas.focus();
   });
 
   onCleanup(() => {
+    // Emscripten doesn't shut down on it's own
+    // So do this for now
     location.reload();
   });
 

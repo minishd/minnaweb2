@@ -9,6 +9,14 @@ declare global {
   function onLoadMap(mapName: string): void;
   function onPlayerSpriteUpdated(sprite: string, idx: number, id: number): void;
   function onPlayerTeleported(mapId: number, x: number, y: number): void;
+  function syncPlayerData(
+    uuid: string,
+    rank: number,
+    accountBin: number,
+    badge: string,
+    medals: number[],
+    id: number,
+  ): void;
 }
 
 globalThis.onRequestFile = (url) => {
@@ -20,7 +28,23 @@ globalThis.onUpdateSystemGraphic = (name) => {
 };
 
 globalThis.onUpdateConnectionStatus = (status) => {
-  console.log("onUpdateConnectionStatus:", status);
+  let statusText;
+  switch (status) {
+    case 0:
+      statusText = "disconnected";
+      break;
+    case 1:
+      statusText = "connected";
+      break;
+    case 2:
+      statusText = "connecting";
+      break;
+    default:
+      statusText = "unknown";
+      break;
+  }
+
+  console.log("onUpdateConnectionStatus:", statusText);
 };
 
 globalThis.onLoadMap = (mapName) => {
@@ -33,6 +57,10 @@ globalThis.onPlayerSpriteUpdated = (sprite, idx, id) => {
 
 globalThis.onPlayerTeleported = (mapId, x, y) => {
   console.log("onPlayerTeleported", mapId, x, y);
+};
+
+globalThis.syncPlayerData = (uuid, rank, accountBin, badge, medals, id) => {
+  console.log("syncPlayerData", uuid, rank, accountBin, badge, medals, id);
 };
 
 export const { default: createEasyRpgPlayer } = await (isSimdSupported
