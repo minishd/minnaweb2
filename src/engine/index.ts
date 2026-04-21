@@ -56,11 +56,11 @@ globalThis.onPlayerSpriteUpdated = (sprite, idx, id) => {
 };
 
 globalThis.onPlayerTeleported = (mapId, x, y) => {
-  console.log("onPlayerTeleported", mapId, x, y);
+  console.log("onPlayerTeleported:", mapId, x, y);
 };
 
 globalThis.syncPlayerData = (uuid, rank, accountBin, badge, medals, id) => {
-  console.log("syncPlayerData", uuid, rank, accountBin, badge, medals, id);
+  console.log("syncPlayerData:", uuid, rank, accountBin, badge, medals, id);
 };
 
 export const { default: createEasyRpgPlayer } = await (isSimdSupported
