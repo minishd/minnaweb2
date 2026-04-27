@@ -17,6 +17,7 @@ declare global {
     medals: number[],
     id: number,
   ): void;
+  function onRoomSwitch(): void;
 }
 
 globalThis.onRequestFile = (url) => {
@@ -61,6 +62,10 @@ globalThis.onPlayerTeleported = (mapId, x, y) => {
 
 globalThis.syncPlayerData = (uuid, rank, accountBin, badge, medals, id) => {
   console.log("syncPlayerData:", uuid, rank, accountBin, badge, medals, id);
+};
+
+globalThis.onRoomSwitch = () => {
+  console.log("onRoomSwitch");
 };
 
 export const { default: createEasyRpgPlayer } = await (isSimdSupported
