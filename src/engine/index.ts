@@ -18,6 +18,12 @@ declare global {
     id: number,
   ): void;
   function onRoomSwitch(): void;
+  function shouldConnectPlayer(uuid: string): boolean;
+  function onPlayerConnectedOrUpdated(
+    sysName: string,
+    name: string,
+    id: number,
+  ): void;
 }
 
 globalThis.onRequestFile = (url) => {
@@ -66,6 +72,15 @@ globalThis.syncPlayerData = (uuid, rank, accountBin, badge, medals, id) => {
 
 globalThis.onRoomSwitch = () => {
   console.log("onRoomSwitch");
+};
+
+globalThis.shouldConnectPlayer = (uuid) => {
+  console.log("shouldConnectPlayer:", uuid);
+  return true;
+};
+
+globalThis.onPlayerConnectedOrUpdated = (sysName, name, id) => {
+  console.log("onPlayerConnectedOrUpdated:", sysName, name, id);
 };
 
 export const { default: createEasyRpgPlayer } = await (isSimdSupported
